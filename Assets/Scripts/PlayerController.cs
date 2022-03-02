@@ -18,8 +18,20 @@ public class PlayerController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        groundMover.move(moveInput.x);
+    {  
+        
+        //groundMover.move(moveInput.x);
+        if(Mathf.Abs(moveInput.x)> Mathf.Epsilon)
+        {
+            groundMover.FlipTransform(moveInput.x);
+        }
+        
+    }
+
+    private void FixedUpdate() {
+        
+      groundMover.move(moveInput.x);
+       
     }
 
     public void OnMove(InputAction.CallbackContext context)

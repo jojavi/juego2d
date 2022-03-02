@@ -6,9 +6,9 @@ using UnityEngine;
 public class GroundMover : MonoBehaviour
 {
     // Start is called before the first frame update
-    [SerializeField] private float walkSpeed = 7f;
+    [SerializeField] public float walkSpeed = 7f;
 
-    [SerializeField] private float jumpHeight = 8f;
+    [SerializeField] public float jumpHeight = 8f;
 
     
 
@@ -19,7 +19,7 @@ public class GroundMover : MonoBehaviour
     private Rigidbody2D rb;
 
     private CapsuleCollider2D capCollider;
-
+    private Animator animator;
     
 
     private void Awake() {
@@ -27,6 +27,8 @@ public class GroundMover : MonoBehaviour
           rb = GetComponent<Rigidbody2D>();
 
         capCollider = GetComponent<CapsuleCollider2D>();
+
+        animator = GetComponent<Animator>();
     }
 
     void Start()
@@ -43,6 +45,16 @@ public class GroundMover : MonoBehaviour
     public void move(float moveX){
 
         rb.velocity = new Vector2 ( moveX * walkSpeed, rb.velocity.y );
+        
+        if (moveX != 0){
+            animator.SetBool("isWalking", true);
+
+        }
+        else {
+            animator.SetBool("isWalking", false);
+        }
+
+        
 
     }
 
@@ -59,12 +71,18 @@ public class GroundMover : MonoBehaviour
         if (value){
 
            // rb.velocity = new Vector2(rb.velocity.x, jumpStartingVel);
-            rb.velocity = new Vector2(rb.velocity.x, Mathf.Sqrt(2*9.8F*jumpHeight));
+            rb.velocity = new Vector2(rb.velocity.x, Mathf.Sqrt(2*10*jumpHeight));
            
     
 
         }
 
+    }
+
+
+    public void FlipTransform (float moveX)
+    {
+        transform.localScale = new Vector2(Mathf.Sign(moveX),1f);
     }
 
 }
