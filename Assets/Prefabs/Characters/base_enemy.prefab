@@ -15,6 +15,9 @@ GameObject:
   - component: {fileID: 978018358236277636}
   - component: {fileID: 5190757543765019489}
   - component: {fileID: -6295129944994843151}
+  - component: {fileID: 9031781954342817335}
+  - component: {fileID: 3849806582779294058}
+  - component: {fileID: 2864931736621388327}
   m_Layer: 0
   m_Name: base_enemy
   m_TagString: Untagged
@@ -161,6 +164,10 @@ MonoBehaviour:
   gdLayer:
     serializedVersion: 2
     m_Bits: 0
+  target: {fileID: 0}
+  RangeDetection: 50
+  velocity: 200
+  jumpModifier: 0.3
 --- !u!114 &-6295129944994843151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,9 +182,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 3
   jumpHeight: 8
+  jumpVelModifier: 1
   jumpableLayers:
     serializedVersion: 2
     m_Bits: 136
+--- !u!114 &9031781954342817335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090176807327834147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4311b173792f8354c96ed77e19dca0c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+--- !u!114 &3849806582779294058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090176807327834147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 654c7ef6df146bd449b0e55dafc49545, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team: 2
+--- !u!114 &2864931736621388327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3090176807327834147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb8a3e300569d244bad906f3f72ee1ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 3
+  destroyOnDeath: 1
+  destroyDelay: 1
+  takeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5135030188194756618
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ TagManager:
   - Character
   - Traps
   - Enemy
-  - 
+  - Climbabe
   - 
   - 
   - 
@@ -49,4 +49,7 @@ TagManager:
     locked: 0
   - name: Traps
     uniqueID: 2159607251
+    locked: 0
+  - name: Climbabe
+    uniqueID: 2696868925
     locked: 0
